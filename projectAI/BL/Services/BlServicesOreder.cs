@@ -12,7 +12,16 @@ namespace bl.Services
     {
         public void AddOreder(Order order)
         {
-            Orders.GetListorders().Add(order);  
+            GetListorders().Add(order);  
+        }
+        public List<Order> GetListorders() 
+        {
+            //צריך פה לשנות וללכת לDAL ולקחת משם את הרשימה 
+            Movie m=new Movie(7767,"הפונציקים","סרט לילדים","www.ch.il","הצגות",100,12/12/2000,AgeGroup.Children);
+            User u=new User(21321,"tmp","tmp@","password",54,eGender.male);
+            Order o=new Order(21123,u,);
+                List<Order>lst=new List<Order>();
+                return
         }
     }
 }
