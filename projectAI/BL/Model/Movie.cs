@@ -4,17 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bl.Model
+namespace BL.Model
 {
 
-    public enum AgeGroup
-    {
-        Babies,
-        Children,
-        Teens,
-        Adult,
-        GoldenAge
-    }
+   
 
     public class Movie
     {
@@ -27,7 +20,7 @@ namespace bl.Model
         public DateOnly CreationDate { get; set; }
         public AgeGroup ageGroup { get; set; }
         public bool IsWoman { get; set; }   
-        public Movie(int id, string movieName, string movieDescription, string movieUrl, string movieCategory, int moviePrice ,DateOnly CreationDate, AgeGroup ageGroup,bool IsWoman)
+        public Movie(int id, string movieName, string movieDescription, string movieUrl, string movieCategory, int moviePrice ,DateOnly CreationDate, enums ageGroup,bool IsWoman)
         {
             this.id = id;
             this.MovieName = movieName;
