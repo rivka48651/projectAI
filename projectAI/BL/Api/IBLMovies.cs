@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.Services
+namespace Bl.Api
 {
-    internal class BLServicesHistory
+    internal class IBLMovies
     {
     }
 }
