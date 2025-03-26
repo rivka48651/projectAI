@@ -1,8 +1,8 @@
-﻿using Bl.Models;
+﻿using BL.Models;
 
-namespace Bl.Api
+namespace BL.Api
 {
-    public interface IBLCustomer : ICrud<BLCustomer>
+    public interface IBLCustomer : IBLCrud<BLCustomer>
     {
 
     }

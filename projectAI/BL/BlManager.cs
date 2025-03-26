@@ -1,10 +1,10 @@
 ﻿using Dal.Api;
-using Bl.Api;
+using BL.Api;
 using Microsoft.Extensions.DependencyInjection;
 using Dal;
-using Bl.Services;
+using BL.Services;
 
-namespace Bl
+namespace BL
 {
     public class BlManager :IBL
     {

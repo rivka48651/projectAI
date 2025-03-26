@@ -1,5 +1,5 @@
 ﻿
-namespace Bl.Api
+namespace BL.Api
 {
     // מה צריך להכיל שכבת הדל
     public interface IBL

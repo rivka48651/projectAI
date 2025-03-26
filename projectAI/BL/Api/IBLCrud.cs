@@ -1,7 +1,7 @@
 ﻿
-namespace Bl.Api
+namespace BL.Api
 {
-    public interface ICrud<T>
+    public interface IBLCrud<T>
     {
         Task<List<T>> GetAll();
     }

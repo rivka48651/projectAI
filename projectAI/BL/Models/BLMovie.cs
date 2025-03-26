@@ -1,15 +1,17 @@
-﻿using System;
+﻿using BL.Models;
+using Dal.Models;
+using System;
 using System.Collections.Generic;
 
-namespace Bl.Models;
+namespace BL.Models;
 
 public partial class BLMovie
 {
     public int Id { get; set; }
 
-    public int? CodeCategory { get; set; }
+    public eCategoryGroup CodeCategory { get; set; }
 
-    public int? AgeCode { get; set; }
+    public eAgeGroup ageGroup { get; set; } //?
 
     public bool? ThereIsWoman { get; set; }
 
@@ -22,4 +24,9 @@ public partial class BLMovie
     public virtual BLAgeGroup? AgeCodeNavigation { get; set; }
 
     public virtual BLCategory? CodeCategoryNavigation { get; set; }
+    //public string MovieName { get; set; }
+    //public string MovieDescription { get; set; }
+    //public string MovieUrl { get; set; }
+    //public int MoviePrice { get; set; }
+
 }

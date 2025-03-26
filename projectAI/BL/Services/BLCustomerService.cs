@@ -1,9 +1,9 @@
-﻿using Bl.Api;
+﻿using BL.Api;
 using Dal.Api;
-using Bl.Models;
+using BL.Models;
 
 
-namespace Bl.Services
+namespace BL.Services
 {
     public class BLCustomerService : IBLCustomer
     {

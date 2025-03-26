@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bl.Api
+namespace BL.Api
 {
     internal class IBLAgeGroup
     {
+
     }
 }

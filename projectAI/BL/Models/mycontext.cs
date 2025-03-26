@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bl.Models;
+namespace BL.Models;
 
 public partial class mycontext : DbContext
 {
@@ -98,7 +98,7 @@ public partial class mycontext : DbContext
             entity.Property(e => e.Id).ValueGeneratedNever();
 
             entity.HasOne(d => d.AgeCodeNavigation).WithMany(p => p.Movies)
-                .HasForeignKey(d => d.AgeCode)
+                .HasForeignKey(d => d.ageGroup)
                 .HasConstraintName("FK_Movies_ToTable");
 
             entity.HasOne(d => d.CodeCategoryNavigation).WithMany(p => p.Movies)

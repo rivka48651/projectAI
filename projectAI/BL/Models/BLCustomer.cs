@@ -1,7 +1,8 @@
-﻿using System;
+﻿using BL.Models;
+using System;
 using System.Collections.Generic;
 
-namespace Bl.Models;
+namespace BL.Models;
 
 public partial class BLCustomer
 {
@@ -17,7 +18,7 @@ public partial class BLCustomer
 
     public string Password { get; set; } = null!;
 
-    public string? Gender { get; set; }
+    public eGender Gender { get; set; }
 
     public int? AgeGroup { get; set; }
 

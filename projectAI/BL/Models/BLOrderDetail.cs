@@ -1,5 +1,5 @@
 ﻿
-namespace Bl.Models;
+namespace BL.Models;
 
 public partial class BLOrderDetail
 {

@@ -1,6 +1,6 @@
-﻿using Bl.Api;
+﻿using BL.Api;
 using Dal.Api;
-using Bl.Models;
+using BL.Models;
 using Dal.Models;
 using iText.Kernel.Pdf;
 using iText.Layout.Element;
@@ -10,7 +10,7 @@ using iText.IO.Font.Constants;
 using iText.Kernel.Font;
 using iText.Kernel.Colors;
 
-namespace Bl.Services
+namespace BL.Services
 {
     public class BLOrderService : IBLOrders
     {
@@ -28,7 +28,7 @@ namespace Bl.Services
                 IdOrder = o.IdOrder,
                 IdCustomer = o.IdCustomer,
                 DateOrder = o.DateOrder,
-                Status = o.Status,
+                //Status = o.Status,
                 TotalAmount = o.TotalAmount,
             }).ToList();
         }
@@ -36,9 +36,9 @@ namespace Bl.Services
         public async Task<List<BLOrder>> GetByIdCustomer(int idC)
         {
             //בדיקה שקיים לקוח כזה 
-            List<Order> list =await dal.Order.GetAll();
+            List<Order> list = await dal.Order.GetAll();
             var isExist = list.FirstOrDefault(o => o.IdCustomer == idC);
-            if(isExist==null)
+            if (isExist == null)
                 throw new Exception("The Customer is not exists in the system");
             else
             {
@@ -47,7 +47,7 @@ namespace Bl.Services
                 {
                     IdOrder = o.IdOrder,
                     DateOrder = o.DateOrder,
-                    Status = o.Status,
+                   // Status = o.Status,
                     TotalAmount = o.TotalAmount,
                 }).ToList();
             }
@@ -56,7 +56,7 @@ namespace Bl.Services
         public async Task<List<BLOrder>> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
         {
             //בדיקה שהתאריכים שהתקבלו הגיוניים
-            if (startDate>DateTime.Today||endDate>DateTime.Today)
+            if (startDate > DateTime.Today || endDate > DateTime.Today)
                 throw new Exception("Incorrect date range.");
             else
             {
@@ -66,7 +66,7 @@ namespace Bl.Services
                     IdOrder = o.IdOrder,
                     IdCustomer = o.IdCustomer,
                     DateOrder = o.DateOrder,
-                    Status = o.Status,
+                  //  Status = o.Status,
                     TotalAmount = o.TotalAmount,
                 }).ToList();
             }
@@ -81,7 +81,7 @@ namespace Bl.Services
                 IdOrder = o.IdOrder,
                 IdCustomer = o.IdCustomer,
                 DateOrder = o.DateOrder,
-                Status = o.Status,
+               // Status = o.Status,
                 TotalAmount = o.TotalAmount,
             }).ToList();
         }
@@ -95,11 +95,14 @@ namespace Bl.Services
                 IdOrder = o.IdOrder,
                 IdCustomer = o.IdCustomer,
                 DateOrder = o.DateOrder,
-                Status = o.Status,
+                //Status = o.Status,
                 TotalAmount = o.TotalAmount,
             }).ToList();
         }
-
+        public Task AddOreder(BLOrder order)
+        {
+            throw new NotImplementedException();
+        }
         public static async Task GenerateOrdersPdf(IEnumerable<BLOrder> orders)
         {
             //יצירת שם קובץ עם תאריך
@@ -144,7 +147,7 @@ namespace Bl.Services
                             .SetFontSize(24)
                             .SetMarginTop(20)
                             .SetMarginBottom(20);
-                           // .SetBackgroundColor(ColorConstants.CYAN); // הוספת צבע רקע לכותרת
+                        // .SetBackgroundColor(ColorConstants.CYAN); // הוספת צבע רקע לכותרת
 
                         // הוספת קו תחתון לכותרת
                         //title.SetBorderBottom(new SolidBorder(ColorConstants.BLACK, 1));
@@ -166,9 +169,9 @@ namespace Bl.Services
                         {
                             table.AddCell(new Cell().Add(new Paragraph(order.IdOrder.ToString()).SetTextAlignment(TextAlignment.CENTER).SetFont(regularFont)));
                             table.AddCell(new Cell().Add(new Paragraph(order.DateOrder.ToString("dd/MM/yyyy")).SetTextAlignment(TextAlignment.CENTER).SetFont(regularFont)));
-                            table.AddCell(new Cell().Add(new Paragraph(order.Status ? "Completed" : "Not completed").SetTextAlignment(TextAlignment.CENTER).SetFont(regularFont)));
+                            //   table.AddCell(new Cell().Add(new Paragraph(order.Status ? "Completed" : "Not completed").SetTextAlignment(TextAlignment.CENTER).SetFont(regularFont)));
                             table.AddCell(new Cell().Add(new Paragraph(order.TotalAmount.ToString("N2")).SetTextAlignment(TextAlignment.CENTER).SetFont(regularFont)));
-                           // table.AddCell(new Cell().Add(new Paragraph(order.IsPaid ? "Paid" : "Unpaid").SetTextAlignment(TextAlignment.CENTER).SetFont(regularFont)));
+                            // table.AddCell(new Cell().Add(new Paragraph(order.IsPaid ? "Paid" : "Unpaid").SetTextAlignment(TextAlignment.CENTER).SetFont(regularFont)));
                         }
                         document.Add(table);
                         document.Close();
@@ -177,6 +180,8 @@ namespace Bl.Services
             }
             Console.WriteLine($"PDF file successfully created at: {filePath}");
         }
+
+     
     }
 }
 
