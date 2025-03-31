@@ -18,10 +18,7 @@ namespace BL.Services
             throw new NotImplementedException();
         }
 
-        //Task<List<BLCustomer>> Api.ICrud<BLCustomer>.GetAll()
-        //{
-        //    throw new NotImplementedException();
-        //}
+  
     }
 
 
