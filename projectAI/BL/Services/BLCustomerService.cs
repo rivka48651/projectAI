@@ -1,6 +1,7 @@
 ﻿using BL.Api;
 using Dal.Api;
 using BL.Models;
+using Dal.Models;
 
 
 namespace BL.Services
@@ -13,12 +14,25 @@ namespace BL.Services
             dal = d;
         }
 
-        public Task< List<BLCustomer>> GetAll()
+        public async Task<List<BLCustomer>> GetAll()
         {
-            throw new NotImplementedException();
+            List<Customer> list = await dal.Customer.GetAll();
+            return list.Select(c => new BLCustomer()
+            {
+                CustomerId = c.CustomerId,
+                CustomerNumber = c.CustomerNumber,
+                CustomerName = c.CustomerName,
+                Phone = c.Phone,
+                Email = c.Email,
+                Password = c.Password,
+                Gender = (eGender)Enum.Parse(typeof(eGender), c.Gender),
+                AgeGroup = c.AgeGroup,
+                ProfilePicture = c.ProfilePicture,
+                AgeGroupNavigation = (eAgeGroup)Enum.Parse(typeof(eAgeGroup), c.AgeGroupNavigation.AgeDescrepition)
+            }).ToList();
         }
 
-  
+
     }
 
 

@@ -24,7 +24,7 @@ public partial class BLCustomer
 
     public byte[]? ProfilePicture { get; set; }
 
-    public virtual BLAgeGroup? AgeGroupNavigation { get; set; }
+    public virtual eAgeGroup AgeGroupNavigation { get; set; }
 
     public virtual BLOrder? Order { get; set; }
 }
