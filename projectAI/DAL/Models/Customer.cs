@@ -42,3 +42,4 @@ public partial class Customer
     [InverseProperty("IdOrderNavigation")]
     public virtual Order? Order { get; set; }
 }
+
